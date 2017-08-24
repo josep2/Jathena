@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: drill
+spec:
+  ports:
+    - name: client
+      port: 8047
+  selector:
+    app: drill
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: drill
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: drill
+    spec:
+      containers:
+        - name: drill
+          image: jowanza/apache-drill
+          imagePullPolicy: Always
+          env: 
+            - name: ZOOKEEPER
+              value: zookeeper:2181
+          ports:
+            - containerPort: 8047
+            - containerPort: 31010
+            - containerPort: 31011
+            - containerPort: 31012
+            - containerPort: 46655
