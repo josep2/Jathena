@@ -25,7 +25,7 @@
 Install Minio
 
 ```
-helm init // wait for helm to till
+helm init
 
 helm install stable/minio
 ```
