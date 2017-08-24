@@ -24,7 +24,7 @@
 
 Install Minio
 
-```bash
+```
 helm init // wait for helm to till
 
 helm install stable/minio
