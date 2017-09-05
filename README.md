@@ -22,18 +22,19 @@
 Install Minio
 
 ```
-Run these three commands (Thanks: https://github.com/kubernetes/examples/blob/master/staging/storage/minio/README.md)
+//Run these three commands (Thanks: https://github.com/kubernetes/examples/blob/master/staging/storage/minio/README.md)
 kubectl create -f https://github.com/kubernetes/kubernetes/blob/master/examples/storage/minio/minio-standalone-pvc.yaml?raw=true
 kubectl create -f https://github.com/kubernetes/kubernetes/blob/master/examples/storage/minio/minio-standalone-deployment.yaml?raw=true
 kubectl create -f https://github.com/kubernetes/kubernetes/blob/master/examples/storage/minio/minio-standalone-service.yaml?raw=true
 
-You can also use the distributed mode found in the linked README above. 
+//You can also use the distributed mode found in the linked README above. 
 ```
 
 Install Zookeeper 
 
 ```bash
 kubectl create -f zookeeper.yaml
+// thanks https://github.com/vitillo/minipipe
 ```
 
 Install Apache Drill 
@@ -51,9 +52,11 @@ kubectl create -f drill.yaml
 
 - To add the CSV to Minio, you need to port-forward your minio pod `9000:9000`, create a bucket named "data" and add the bank-data.csv file from the repo. 
 
-![](/screenshots/minio.gif)
+![](https://i.imgur.com/2Pa9hUT.gif)
 
 - To edit and enable s3. You must port forward your Drill pod `8047:8047` and add the s3.json config to the s3 storage service.
+
+![](https://imgur.com/ZUuWj0z.gif)
 
 - Use the Drillbit interface to query the file
 
@@ -61,6 +64,7 @@ kubectl create -f drill.yaml
 select * from s3.`bank-data.csv`;
 ```
 
+![](https://imgur.com/Y7sQ0pB.gif)
 
 #### Bonus
 

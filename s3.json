@@ -28,10 +28,9 @@
       "extensions": [
         "csv"
       ],
-      "delimiter": ","
+      "delimiter": ",",
       "skipFirstLine": false,
-      "extractHeader": true,
-      "delimiter": ","
+      "extractHeader": true
     },
     "tsv": {
       "type": "text",
