@@ -1,0 +1,80 @@
+{
+  "name": "josep2/Jathena",
+  "version": "0.1.4",
+  "libraries": {
+    "xv": "^1.1.25"
+  },
+  "title": "Jathena",
+  "branch": "master",
+  "style": {
+    "name": "Williamsburg",
+    "componentSet": {
+      "nav": "nav/BasicNav",
+      "header": "header/LightBannerHeader",
+      "article": "article/ReaderArticle",
+      "footer": "footer/BasicFooter"
+    },
+    "fontFamily": "Montserrat, sans-serif",
+    "heading": {
+      "fontWeight": 600,
+      "letterSpacing": "0.1em"
+    },
+    "colors": {
+      "text": "#346",
+      "background": "#fff",
+      "primary": "#0099e0",
+      "secondary": "#ab61ff",
+      "highlight": "#f7b",
+      "muted": "#fffab3",
+      "border": "#ccd"
+    }
+  },
+  "content": [
+    {
+      "component": "nav",
+      "links": [
+        {
+          "href": "https://github.com/josep2/Jathena",
+          "text": "GitHub"
+        }
+      ]
+    },
+    {
+      "component": "header",
+      "heading": "Jathena",
+      "subhead": "Proof of concept open source Amazon Athena",
+      "children": [
+        {
+          "component": "ui/TweetButton",
+          "text": "Jathena: Proof of concept open source Amazon Athena",
+          "url": null
+        },
+        {
+          "component": "ui/GithubButton",
+          "user": "josep2",
+          "repo": "Jathena"
+        }
+      ]
+    },
+    {
+      "component": "article",
+      "metadata": {
+        "source": "github.readme"
+      },
+      "html": "\n<h3>An Open Source Amazon Athena Proof of Concept</h3>\n<h4>Parts</h4>\n<ul>\n<li>Apache Drill</li>\n<li>Apache Zookeeper</li>\n<li>Minio</li>\n<li>Kubernetes</li>\n</ul>\n<h4>Installation</h4>\n<p><strong>Prereqs:</strong></p>\n<p><a href=\"https://kubernetes.io\">Kubernetes</a></p>\n<p><a href=\"https://helm.sh\">Helm</a></p>\n<h4>Ordered Installation</h4>\n<p>Install Minio</p>\n<pre>helm init // <span class=\"hljs-keyword\">wait</span> <span class=\"hljs-keyword\">for</span> helm <span class=\"hljs-keyword\">to</span> till\n\nhelm install stable/minio</pre><p>Install Zookeeper </p>\n<pre>kubectl create <span class=\"hljs-_\">-f</span> zookeeper.yaml</pre><p>Install Apache Drill </p>\n<pre>kubectl create <span class=\"hljs-_\">-f</span> drill.yaml</pre><h4>Final Steps</h4>\n<p>Add the Parquet file to Minio</p>\n<p>You can do this via the RESTful API, but the UI is good enough. Bind the Minio port to your localhost and add the file:</p>\n<p>Open Apache Drill</p>\n<p>Query the file </p>\n"
+    },
+    {
+      "component": "footer",
+      "links": [
+        {
+          "href": "https://github.com/josep2/Jathena",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/josep2",
+          "text": "josep2"
+        }
+      ]
+    }
+  ]
+}
