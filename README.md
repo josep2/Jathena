@@ -16,18 +16,16 @@
 
 [Kubernetes](https://kubernetes.io)
 
-[Helm](https://helm.sh)
-
-
 
 #### Ordered Installation 
 
 Install Minio
 
 ```
-helm init
-
-helm install stable/minio
+Run these three commands (Thanks: https://github.com/kubernetes/examples/blob/master/staging/storage/minio/README.md)
+kubectl create -f https://github.com/kubernetes/kubernetes/blob/master/examples/storage/minio/minio-distributed-headless-service.yaml?raw=true
+kubectl create -f https://github.com/kubernetes/kubernetes/blob/master/examples/storage/minio/minio-distributed-statefulset.yaml?raw=true
+kubectl create -f https://github.com/kubernetes/kubernetes/blob/master/examples/storage/minio/minio-distributed-service.yaml?raw=true
 ```
 
 Install Zookeeper 
@@ -44,16 +42,13 @@ kubectl create -f drill.yaml
 
 #### Final Steps
 
-Add the Parquet file to Minio
-
-You can do this via the RESTful API, but the UI is good enough. Bind the Minio port to your localhost and add the file:
-
-
+1. Add the my-data.csv file to Minio
+2. Edit and enable s3 in Apache Drill Admin Console
+3. Query File 
 
 
 
 
-Open Apache Drill
+#### Bonus
 
-
-Query the file 
+You can get the JDBC or ODBC connection for Drill by following the intrusctions [here](https://drill.apache.org/docs/using-the-jdbc-driver/). 

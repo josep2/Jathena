@@ -1,0 +1,75 @@
+{
+  "type": "file",
+  "enabled": true,
+  "connection": "s3a://data",
+  "config": null,
+  "workspaces": {
+    "root": {
+      "location": "/",
+      "writable": false,
+      "defaultInputFormat": null
+    },
+    "tmp": {
+      "location": "/tmp",
+      "writable": true,
+      "defaultInputFormat": null
+    }
+  },
+  "formats": {
+    "psv": {
+      "type": "text",
+      "extensions": [
+        "tbl"
+      ],
+      "delimiter": "|"
+    },
+    "csv": {
+      "type": "text",
+      "extensions": [
+        "csv"
+      ],
+      "delimiter": ","
+      "skipFirstLine": false,
+      "extractHeader": true,
+      "delimiter": ","
+    },
+    "tsv": {
+      "type": "text",
+      "extensions": [
+        "tsv"
+      ],
+      "delimiter": "\t"
+    },
+    "httpd": {
+      "type": "httpd",
+      "logFormat": "%h %t \"%r\" %>s %b \"%{Referer}i\"",
+      "timestampFormat": null
+    },
+    "parquet": {
+      "type": "parquet"
+    },
+    "json": {
+      "type": "json",
+      "extensions": [
+        "json"
+      ]
+    },
+    "avro": {
+      "type": "avro"
+    },
+    "sequencefile": {
+      "type": "sequencefile",
+      "extensions": [
+        "seq"
+      ]
+    },
+    "csvh": {
+      "type": "text",
+      "extensions": [
+        "csvh"
+      ],
+      "extractHeader": true,
+      "delimiter": ","
+    }
+  }
+}
